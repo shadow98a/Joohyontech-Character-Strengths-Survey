@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>주현테크 강점검사</title>
+        <style>
+            @keyframes fade_in
+            {
+                from
+                {
+                    opacity:0;
+                }
+                to
+                {
+                    opacity:1;
+                }
+            }
+              
+            *
+            {
+                animation:fade_in 1s;
+                color:#878a8c;
+            }
+
+            b
+            {
+                color:#007acc
+            }
+
+            header
+            {
+                border-bottom:1px solid #878a8c;
+
+                display:flex;
+                justify-content:space-evenly;
+                align-items:center;
+            }
+
+            header>*
+            {
+                width:37.5%;
+            }
+
+            header>div
+            {
+                display:flex;
+                flex-direction:column;
+                align-items: center;
+            }
+
+            header>div>h1
+            {
+                font-size:3.1vw;
+            }
+            
+            main>form>*>legend
+            {
+                font-size:2em;
+            }
+
+            main>form>*>fieldset>legend
+            {
+                font-size:1.5em;
+            }
+
+            main>form>*>fieldset>div
+            {
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+            }
+
+            main>form>*>fieldset>div>p
+            {
+                width:50%;
+            }
+
+            main>form>*>fieldset>div>div
+            {
+                width:37.5%;
+
+                font-size:1.5em;
+
+                display:flex;
+                justify-content:space-between;
+            }
+
+            main>p
+            {
+                font-size:2em;
+            }
+
+            
+            .no_display
+            {
+                display:none;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <img src="https://postfiles.pstatic.net/MjAyMjAzMjBfMjUg/MDAxNjQ3NzYxNjQ3MTQz.da5Li3i6R_ydfhfa8yFptC6qZGX8l2O5ygmj2ZOG3Tog.IqkmzyzGzg4-ILMA1ohR3pVJvqMXs110IW7Vol32i5Mg.PNG.shadow98a/%EC%A3%BC%ED%98%84%ED%85%8C%ED%81%AC_CI_dark.png?type=w966" alt="주현테크 CI" title="주현테크 CI"/>
+            <div>
+                <h1>
+                    나의 <b>대표 강점</b>을 찾아라
+                </h1>
+                *응답방법 : 각 문항에 대해 1에서 5점 사이의 점수를 매긴다.
+            </div>
+        </header>
+        <main>
+            <form>
+            </form>
+            <p class="no_display">
+            </p>
+        </main>
+        <script>
+            const questions=
+            [
+                '나는 강한 상대와 맞서는 일이 종종 있다',
+                '고통이나 실패에 대한 두려움 때문에 내 능력을 제대로 발휘하지 못하는 경우가 종종 있다',
+                '나는 한번 시작한 일은 반드시 끝을 맺는다',
+                '나는 일이나 공부를 하다가는 종종 옆길로 샌다',
+                '나는 언제나 약속을 지킨다',
+                '내 친구들이 나에게 ‘너는 참 솔직하다’고 말한 적은 없다',
+                '나는 내가 하는 모든 일에 열정적으로 달려든다',
+                '나는 맥이 빠진 채 그냥 시간을 흘려보내는 적이 많다',
+                '나는 지나간 일에 대해서는 마음에 담아두지 않는다',
+                '나는 당하고는 못산다. 꼭 내가 당한 만큼 갚아 준다',
+                '사람들이 나에 대해 칭찬하기 시작하면 나는 화제를 바꾼다',
+                '나는 내 자신의 성취나 성공에 대해 종종 말하곤 한다',
+                '나는 신체적으로 위험한 활동은 피하는 편이다',
+                '나는 때때로 친구 사이나 연인 관계에 있어서 후회할 만한 일을 한다',
+                '나는 나의 기분이나 감정을 잘 조절할 수 있다',
+                '나는 다이어트나 금연을 시도한다해도 그것을 끝까지 지켜나가기가 힘들다',
+                '나는 이 세상에 대해 늘 호기심을 갖는다',
+                '나는 쉽게 싫증을 내는 편이다',
+                '나는 새로운 것을 배울 때면 매우 신나고 기분이 좋다',
+                '나는 뮤지엄이나 특별 강연 등 무언가 배울 수 있는 곳을 굳이 찾아다니지는 않는다',
+                '어떠한 주제에 대해서든 나는 마음만 먹으면 상당히 합리적인 생각을 할 수 있다',
+                '나는 때로 성급한 판단을 내리는 편이다',
+                '일을 처리하는 데 있어서 새로운 방법을 생각해내는 것을 좋아한다',
+                '대부분의 내 친구들은 나보다 더 상상력이 뛰어나다',
+                '나는 언제나 사물의 다양한 측면과 큰 그림을 볼 수 있다',
+                '나에게 고민을 상담해오거나 내 충고를 듣고자 하는 사람은 거의 없다',
+                '나는 어떤 그룹의 일원으로 일할 때 최선을 다해 일한다',
+                '나는 내가 속한 그룹의 이익을 위해 내 자신의 개인적인 이익을 희생하는 것을 꺼린다',
+                '나는 신분의 높고 낮음과 상관없이 모든 사람들을 균등하게 대한다',
+                '만약 내가 누군가를 싫어한다면, 나는 그 사람을 공평하게 대하기가 힘들다',
+                '나는 사람들에게 싫은 소리를 하거나 다그치지 않고서도 그들이 함께 어떤 일을 하도록 잘 이끌 수 있다',
+                '여러 사람이 함께 어떤 일을 하는 데 있어서 내가 앞장서서 일을 추진하는 것은 왠지 어색하다',
+                '내 인생에는 나의 삶과 행복에 대해 자기 자신의 삶과 행복만큼이나 생각해주고 배려해주는 사람들이 있다',
+                '나는 다른 사람들의 사랑을 받아들이는데 불편함을 느낀다',
+                '나는 지난 한달 동안 내 주변에 있는 사람을 자발적으로 도와준 적이 있다',
+                '나는 다른 사람이 얻은 행운에 대해 마치 내가 그러한 행운이라도 얻은 것처럼 진심으로 기뻐해준 적은 거의 없다',
+                '나는 어떤 자리에서든 어떤 사람들과든 잘 어울릴 수 있다',
+                '나는 내 주변 사람들의 기분이나 감정을 눈치 빠르게 얼른 파악해내는 능력이 부족하다',
+                '지난 한달간 나는 훌륭한 음악이나 미술, 영화, 공연, 또는 뛰어난 스포츠나 과학적 발견 등에 매료되거나 감탄한 적이 있다',
+                '나는 지난 일 년동안 아름다운 어떤 것을 만들어낸 적이 없다',
+                '나는 자그마한 일에도 늘 감사한다.',
+                '나는 내가 얼마나 복 받은 사람인지에 대해 생각해본 적이 별로 없다',
+                '나는 어떤 일이든 항상 그 일의 좋은 면을 보려한다',
+                '나는 내가 원하는 것을 이루기 위해 면밀한 계획을 세워본 적이 거의 없다',
+                '나는 가능하면 일을 노는 것처럼 즐거운 마음으로 하려 한다',
+                '나는 농담을 거의 하지 않는다.',
+                '나의 삶에는 분명한 목적이 있다',
+                '나의 삶에 어떤 절대적 존재가 부여한 소명 같은 것은 없다'
+            ];
+            
+            const character_strengths=
+            [
+                '용감성과 용맹',
+                '인내 (노력 혹은 끈기)', 
+                '진정성 (진실됨 혹은 정직함)',
+                '열정 (활력 또는 열의)',
+                '용서와 자비',
+                '겸손과 겸양',
+                '신중함 (분별력 혹은 조심성)',
+                '자기통제',
+                '호기심 (세상사에 대한 폭 넓은 관심)',
+                '학습욕구 혹은 배움에 대한 사랑',
+                '판단력 (열린 마음 혹은 비판적 사고)',
+                '창의성 (독창성, 똑똑함, 세상물정에 밝음)',
+                '통찰력',
+                '책임감 (시민 의식, 팀워크, 충성심)',
+                '공정성과 공평함',
+                '리더십',
+                '사랑하기와 사랑받기',
+                '친절과 너그러움',
+                '사회성',
+                '심미안',
+                '감사',
+                '낙관성 (희망 혹은 미래지향성)',
+                '쾌활성과 유머',
+                '영성 (목적의식 혹은 경건함)'
+            ];
+
+            const question_to_strength={};
+            question_to_strength[questions[0]]=character_strengths[0];
+            question_to_strength[questions[1]]=character_strengths[0];
+            question_to_strength[questions[2]]=character_strengths[1];
+            question_to_strength[questions[3]]=character_strengths[1];
+            question_to_strength[questions[4]]=character_strengths[2];
+            question_to_strength[questions[5]]=character_strengths[2];
+            question_to_strength[questions[6]]=character_strengths[3];
+            question_to_strength[questions[7]]=character_strengths[3];
+            question_to_strength[questions[8]]=character_strengths[4];
+            question_to_strength[questions[9]]=character_strengths[4];
+            question_to_strength[questions[10]]=character_strengths[5];
+            question_to_strength[questions[11]]=character_strengths[5];
+            question_to_strength[questions[12]]=character_strengths[6];
+            question_to_strength[questions[13]]=character_strengths[6];
+            question_to_strength[questions[14]]=character_strengths[7];
+            question_to_strength[questions[15]]=character_strengths[7];
+            question_to_strength[questions[16]]=character_strengths[8];
+            question_to_strength[questions[17]]=character_strengths[8];
+            question_to_strength[questions[18]]=character_strengths[9];
+            question_to_strength[questions[19]]=character_strengths[9];
+            question_to_strength[questions[20]]=character_strengths[10];
+            question_to_strength[questions[21]]=character_strengths[10];
+            question_to_strength[questions[22]]=character_strengths[11];
+            question_to_strength[questions[23]]=character_strengths[11];
+            question_to_strength[questions[24]]=character_strengths[12];
+            question_to_strength[questions[25]]=character_strengths[12];
+            question_to_strength[questions[26]]=character_strengths[13];
+            question_to_strength[questions[27]]=character_strengths[13];
+            question_to_strength[questions[28]]=character_strengths[14];
+            question_to_strength[questions[29]]=character_strengths[14];
+            question_to_strength[questions[30]]=character_strengths[15];
+            question_to_strength[questions[31]]=character_strengths[15];
+            question_to_strength[questions[32]]=character_strengths[16];
+            question_to_strength[questions[33]]=character_strengths[16];
+            question_to_strength[questions[34]]=character_strengths[17];
+            question_to_strength[questions[35]]=character_strengths[17];
+            question_to_strength[questions[36]]=character_strengths[18];
+            question_to_strength[questions[37]]=character_strengths[18];
+            question_to_strength[questions[38]]=character_strengths[19];
+            question_to_strength[questions[39]]=character_strengths[19];
+            question_to_strength[questions[40]]=character_strengths[20];
+            question_to_strength[questions[41]]=character_strengths[20];
+            question_to_strength[questions[42]]=character_strengths[21];
+            question_to_strength[questions[43]]=character_strengths[21];
+            question_to_strength[questions[44]]=character_strengths[22];
+            question_to_strength[questions[45]]=character_strengths[22];
+            question_to_strength[questions[46]]=character_strengths[23];
+            question_to_strength[questions[47]]=character_strengths[23];
+
+            const question_to_is_positive={};
+            question_to_is_positive[questions[0]]=true;
+            question_to_is_positive[questions[1]]=false;
+            question_to_is_positive[questions[2]]=true;
+            question_to_is_positive[questions[3]]=false;
+            question_to_is_positive[questions[4]]=true;
+            question_to_is_positive[questions[5]]=false;
+            question_to_is_positive[questions[6]]=true;
+            question_to_is_positive[questions[7]]=false;
+            question_to_is_positive[questions[8]]=true;
+            question_to_is_positive[questions[9]]=false;
+            question_to_is_positive[questions[10]]=true;
+            question_to_is_positive[questions[11]]=false;
+            question_to_is_positive[questions[12]]=true;
+            question_to_is_positive[questions[13]]=false;
+            question_to_is_positive[questions[14]]=true;
+            question_to_is_positive[questions[15]]=false;
+            question_to_is_positive[questions[16]]=true;
+            question_to_is_positive[questions[17]]=false;
+            question_to_is_positive[questions[18]]=true;
+            question_to_is_positive[questions[19]]=false;
+            question_to_is_positive[questions[20]]=true;
+            question_to_is_positive[questions[21]]=false;
+            question_to_is_positive[questions[22]]=true;
+            question_to_is_positive[questions[23]]=false;
+            question_to_is_positive[questions[24]]=true;
+            question_to_is_positive[questions[25]]=false;
+            question_to_is_positive[questions[26]]=true;
+            question_to_is_positive[questions[27]]=false;
+            question_to_is_positive[questions[28]]=true;
+            question_to_is_positive[questions[29]]=false;
+            question_to_is_positive[questions[30]]=true;
+            question_to_is_positive[questions[31]]=false;
+            question_to_is_positive[questions[32]]=true;
+            question_to_is_positive[questions[33]]=false;
+            question_to_is_positive[questions[34]]=true;
+            question_to_is_positive[questions[35]]=false;
+            question_to_is_positive[questions[36]]=true;
+            question_to_is_positive[questions[37]]=false;
+            question_to_is_positive[questions[38]]=true;
+            question_to_is_positive[questions[39]]=false;
+            question_to_is_positive[questions[40]]=true;
+            question_to_is_positive[questions[41]]=false;
+            question_to_is_positive[questions[42]]=true;
+            question_to_is_positive[questions[43]]=false;
+            question_to_is_positive[questions[44]]=true;
+            question_to_is_positive[questions[45]]=false;
+            question_to_is_positive[questions[46]]=true;
+            question_to_is_positive[questions[47]]=false;
+
+            const types_of_strengths=['용기','절제','지혜와 지식','정의로움','인간미과 사랑','초월성'];
+            const strength_to_type={};
+            strength_to_type[character_strengths[0]]=types_of_strengths[0];
+            strength_to_type[character_strengths[1]]=types_of_strengths[0]; 
+            strength_to_type[character_strengths[2]]=types_of_strengths[0];
+            strength_to_type[character_strengths[3]]=types_of_strengths[0];
+            strength_to_type[character_strengths[4]]=types_of_strengths[1];
+            strength_to_type[character_strengths[5]]=types_of_strengths[1];
+            strength_to_type[character_strengths[6]]=types_of_strengths[1];
+            strength_to_type[character_strengths[7]]=types_of_strengths[1];
+            strength_to_type[character_strengths[8]]=types_of_strengths[2];
+            strength_to_type[character_strengths[9]]=types_of_strengths[2];
+            strength_to_type[character_strengths[10]]=types_of_strengths[2];
+            strength_to_type[character_strengths[11]]=types_of_strengths[2];
+            strength_to_type[character_strengths[12]]=types_of_strengths[3];
+            strength_to_type[character_strengths[13]]=types_of_strengths[3];
+            strength_to_type[character_strengths[14]]=types_of_strengths[3];
+            strength_to_type[character_strengths[15]]=types_of_strengths[3];
+            strength_to_type[character_strengths[16]]=types_of_strengths[4];
+            strength_to_type[character_strengths[17]]=types_of_strengths[4];
+            strength_to_type[character_strengths[18]]=types_of_strengths[4];
+            strength_to_type[character_strengths[19]]=types_of_strengths[5];
+            strength_to_type[character_strengths[20]]=types_of_strengths[5];
+            strength_to_type[character_strengths[21]]=types_of_strengths[5];
+            strength_to_type[character_strengths[22]]=types_of_strengths[5];
+            strength_to_type[character_strengths[23]]=types_of_strengths[5];
+            
+            const form=document.querySelector('body>main>form');
+            const paragraph=document.querySelector('body>main>p');
+
+            let number_of_divisions_for_questions=0;
+            let previous_type;
+            let fieldset_for_type;
+            let previous_strength;
+            let fieldset_for_strength;
+            const answers={};
+
+            function append_fieldset(node, text_content)
+            {
+                const fieldset=document.createElement('fieldset');
+                node.appendChild(fieldset);
+
+                const legend=document.createElement('legend');
+                legend.textContent=text_content;
+                fieldset.appendChild(legend);
+
+                return fieldset;
+            }
+            
+            function append_division_for_inputs(node,question)
+            {
+                const division=document.createElement('div');
+                node.appendChild(division);
+
+                for(let answer=1;answer<=5;answer++)
+                {
+                    const label=document.createElement('label');
+                    label.textContent=answer;
+                    division.appendChild(label);
+
+                    const input=document.createElement('input');
+                    input.type='radio';
+                    input.name=question;
+                    input.addEventListener('click',function()
+                    {
+                        if(answers[question]===undefined)
+                        {
+                            if(number_of_divisions_for_questions<questions.length)
+                            {
+                                append_division_for_question();
+                            }
+                            else
+                            {
+                                answers[question]=answer;
+                                display_result()
+                            }
+                        }
+                        
+                        answers[question]=answer;
+                        
+                    });
+                    label.appendChild(input);
+                }
+            }
+
+            function append_division_for_question()
+            {
+                const index=number_of_divisions_for_questions;
+                const question=questions[index];
+                const current_strength=question_to_strength[question];
+                const current_type=strength_to_type[current_strength];
+
+                if(current_type!=previous_type)
+                {
+                    fieldset_for_type=append_fieldset(form,current_type);
+                }
+
+                if(current_strength!=previous_strength)
+                {
+                    fieldset_for_strength=append_fieldset(fieldset_for_type,current_strength);
+                }
+
+                const division=document.createElement('div');
+                fieldset_for_strength.appendChild(division);
+
+                const paragraph=document.createElement('p');
+                paragraph.textContent=question;
+                division.appendChild(paragraph);
+
+                append_division_for_inputs(division,question);
+
+                number_of_divisions_for_questions++;
+                previous_strength=current_strength;
+                previous_type=current_type;
+            }
+
+            function get_strength_to_value()
+            {
+                const strength_to_value={};
+                questions.forEach((question)=>
+                {
+                    const character_strength=question_to_strength[question];
+                    const is_positive=question_to_is_positive[question];
+                    const value=answers[question];
+
+                    if(strength_to_value[character_strength]===undefined)
+                    {
+                        strength_to_value[character_strength]=0;
+                    }
+
+                    strength_to_value[character_strength]+=is_positive?value:-value;
+                });
+                return strength_to_value;
+            }
+
+            function display_result()
+            {
+                form.classList.add('no_display');
+                paragraph.classList.remove('no_display');
+
+                paragraph.innerText='대표강점 : ';
+                const result=Object.entries(get_strength_to_value())
+                result.sort((a,b)=>b[1]-a[1]);
+                for(let index=0;index<5;index++)
+                {
+                    if(index>0)
+                    {
+                        const text_node=document.createTextNode(', ');
+                        paragraph.appendChild(text_node);
+                    }
+
+                    const bold_text=document.createElement('b');
+                    bold_text.textContent=result[index][0];
+                    paragraph.appendChild(bold_text);
+                }
+            }
+
+            append_division_for_question();
+        </script>
+    </body>
+</html>
